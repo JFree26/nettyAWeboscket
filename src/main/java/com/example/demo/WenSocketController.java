@@ -6,6 +6,7 @@ import com.example.demo.netty.MyNettyHandler;
 import com.example.demo.netty.Person;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +22,7 @@ import java.util.Map;
 public class WenSocketController {
 
     @Autowired
+    private RedisTemplate<String,String> redisTemplate;
 
     @RequestMapping("/send")
     public String sendAll() {
@@ -31,6 +33,8 @@ public class WenSocketController {
         }
         return "SUCCESS";
     }
+
+
 
     @RequestMapping("/getIp")
     public String getIp() {
