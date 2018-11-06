@@ -70,6 +70,7 @@ public class MPGenerator {
         sg.setColumnNaming(NamingStrategy.underline_to_camel);
         sg.setSuperEntityClass("com.example.demo.entity.BaseEntity");
         sg.setInclude(new String[]{"tb_park_parameter"});
+      //  sg.setLogicDeleteFieldName("is_del");//逻辑删除字段属性名称
         // sg.setExclude(new String[]{"test"}); // 排除生成的表
         // 自定义实体父类
         // sg.setSuperEntityClass("com.baomidou.demo.TestEntity");
