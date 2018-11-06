@@ -27,9 +27,11 @@ public class NettyServer {
         try {
             ServerBootstrap sp = new ServerBootstrap();
             //option配置属性
-            sp.option(ChannelOption.SO_BACKLOG, 1024) //TCP_NODELAY=true低延迟，发送数据
+            sp.channel(NioServerSocketChannel.class)
+                    .option(ChannelOption.SO_BACKLOG, 1024)
+                    .option(ChannelOption.TCP_NODELAY, true) // 不延迟，消息立即发送
+                    .childOption(ChannelOption.SO_KEEPALIVE, true)//长连接
                     .group(work, boss)
-                    .channel(NioServerSocketChannel.class)
                     .localAddress(this.port)
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
