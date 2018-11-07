@@ -12,10 +12,11 @@ public class NettyStartConfig implements ApplicationRunner {
     public void run(ApplicationArguments applicationArguments) throws Exception {
         new Thread(() -> {
             try {
-                new NettyServer(32119).start();
+                new NettyServer(32109).start();
             } catch (Exception e) {
-                e.printStackTrace();
+                return;
             }
         }).start();
+        return;
     }
 }

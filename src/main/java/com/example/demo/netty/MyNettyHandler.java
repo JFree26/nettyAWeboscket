@@ -59,7 +59,7 @@ public class MyNettyHandler extends SimpleChannelInboundHandler<Object> {
             ctx.channel().writeAndFlush(new PongWebSocketFrame(pin.content().retain()));
             return;
         } else if (obj instanceof TextWebSocketFrame) {
-
+                     //后面要修改到业务线程池中处理
             new BusinessActionModHandler(this, obj).doWork();
 
         } else if (obj instanceof CloseWebSocketFrame) {

@@ -17,8 +17,8 @@ import java.util.stream.Stream;
 
 public class Main3 {
     public static void main(String[] args) {
-        PersonEnum.BLANK.getId().compareTo(PersonEnum.RED.getId());
-        System.out.println(new DecimalFormat("###,###.00").format(1121211102.128));
+        DecimalFormat df = new DecimalFormat(("0.00"));
+        System.out.println(df.format(1));
 }
 
     public static  List<LocalDateTime> timeCut5(String requestTime) {
